@@ -11,8 +11,14 @@ do código, e estou ciente que estes trechos não serão considerados para fins de 
 
 package base;
 
+import view.UsuarioView;
+
 public class Main {
 	
+	public static void main(String[] args) { 
+		
+		UsuarioView.menuPrincipal();
+		
+	}
 	
-
 }

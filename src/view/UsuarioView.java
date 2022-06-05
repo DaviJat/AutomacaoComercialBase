@@ -3,9 +3,9 @@ package view;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class UsuarioView extends AbstractView{
+public class UsuarioView{
 	
-	public void menuPrincipal() {
+	public static void menuPrincipal() {
 		
 		@SuppressWarnings("resource")
 		Scanner entradaMenu = new Scanner(System.in);
@@ -39,7 +39,7 @@ public class UsuarioView extends AbstractView{
 		}
 	}
 	
-	public ArrayList<String> menuCadastro() {
+	public static ArrayList<String> menuCadastro() {
 		
 		String gerente = "false";
 		
@@ -80,7 +80,7 @@ public class UsuarioView extends AbstractView{
 		return dadosCadastro; 
 	}
 	
-	public ArrayList<String> menuEdicao() {
+	public static ArrayList<String> menuEdicao() {
 		
 		String novoValor = "";
 		
@@ -126,7 +126,7 @@ public class UsuarioView extends AbstractView{
 		
 	}
 	
-	public String menuExcluir() {
+	public static String menuExcluir() {
 		
 		@SuppressWarnings("resource")
 		Scanner entradaExclusao = new Scanner(System.in);
@@ -139,7 +139,7 @@ public class UsuarioView extends AbstractView{
 		return codigo;
 	}
 	
-	public void listar() {
+	public static void listar() {
 		System.out.println("======== Lista ========");
 		System.out.println("Código / Nome / Gerente");
 	}
