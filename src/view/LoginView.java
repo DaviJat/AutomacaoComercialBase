@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class LoginView {
 	
-	public static ArrayList<String> login() {
+	public static ArrayList<String> telaLogin() {
 		
 		@SuppressWarnings("resource")
 		Scanner entrada = new Scanner(System.in);
@@ -19,8 +19,6 @@ public class LoginView {
 		String senha = entrada.nextLine();
 		
 		ArrayList<String> dadosLogin = new ArrayList<String>();
-		
-		dadosLogin = UsuarioView.menuCadastro();
 		
 		dadosLogin.add(codigo);
 		dadosLogin.add(senha);

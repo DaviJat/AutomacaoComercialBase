@@ -11,15 +11,17 @@ do código, e estou ciente que estes trechos não serão considerados para fins de 
 
 package base;
 
-import view.UsuarioView;
+import controller.LoginController;
+import model.Usuario;
 
 public class Main {
 	
-	public static void main(String[] args) { 
+	public static void main(String[] args) {
 		
-		while (true) {
-		UsuarioView.menuPrincipal();
-		}
+		Usuario novoUsuario = new Usuario("1", "Administrador", "adm", true);
+		Usuario.cadastrar(novoUsuario);
+		
+		LoginController.login();
 		
 	}
 }

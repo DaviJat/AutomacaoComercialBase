@@ -7,10 +7,14 @@ import view.UsuarioView;
 
 public class UsuarioController{
 	
-	static int contadorCodigo = 0;
+	static int contadorCodigo = 1;
 	
 	public static void geraCodigo() {
 		contadorCodigo ++;
+	}
+	
+	public static void menuPrincipal() {
+		UsuarioView.menuPrincipal();
 	}
 	
 	public static void cadastro() {
