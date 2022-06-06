@@ -2,24 +2,73 @@ package controller;
 
 import java.util.ArrayList;
 
+import model.Usuario;
 import view.UsuarioView;
 
-public class UsuarioController extends AbstractController{
+public class UsuarioController{
 	
-	public void cadastro() {
+	static int contadorCodigo = 1;
+	
+	public static void geraCodigo() {
+		contadorCodigo ++;
+	}
+	
+	public static void cadastro() {
+		
+		boolean gerente = false;
 			
 		ArrayList<String> dadosCadastro = new ArrayList<String>();
 		
 		dadosCadastro = UsuarioView.menuCadastro();
 		
-		System.out.println(dadosCadastro);
+		geraCodigo();
+		
+		String codigo = Integer.toString(contadorCodigo);
+		String nome = dadosCadastro.get(0);
+		String senha = dadosCadastro.get(1);
+		String gerenteString = dadosCadastro.get(2);
+		
+		if (gerenteString == "true"){
+			gerente = true;
+		}
+		
+		
+		Usuario novoUsuario = new Usuario(codigo, nome, senha, gerente);
+		Usuario.cadastrar(novoUsuario);
 		
 	};
 
-	public void edicao() {};
+	public static void edicao() {
+		
+		ArrayList<String> dadosEdicao = new ArrayList<String>();
+		
+		dadosEdicao = UsuarioView.menuEdicao();
+		
+		String codigo = dadosEdicao.get(0);
+		String opcao = dadosEdicao.get(1);
+		String valor = dadosEdicao.get(2);
+		
+		switch (opcao) {
+		case "1":
+			Usuario.editarNome(codigo, valor);
+			break;
+		case "2":
+			Usuario.editarCargo(codigo, valor);
+			break;
+		}
+		
+	};
 	
-	public void excluir() {};
+	public static void excluir() {
+		
+		String codigo = UsuarioView.menuExcluir();
+		Usuario.excluir(codigo);
+		
+	};
 	
-	public void listar() {};
+	public static void listar() {
+		UsuarioView.listar();
+		Usuario.listar();
+	};
 
 }

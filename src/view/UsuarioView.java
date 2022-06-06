@@ -3,6 +3,8 @@ package view;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import controller.UsuarioController;
+
 public class UsuarioView{
 	
 	public static void menuPrincipal() {
@@ -22,16 +24,16 @@ public class UsuarioView{
 		
 		switch (opcaoMenu) {
 		case "1":
-			menuCadastro();
+			UsuarioController.cadastro();
 			break;
 		case "2":
-			menuEdicao();
+			UsuarioController.edicao();
 			break;
 		case "3":
-			menuExcluir();
+			UsuarioController.excluir();
 			break;
 		case "4":
-			listar();
+			UsuarioController.listar();
 			break;
 		default:
 			System.out.println("Opção inválida");
@@ -89,14 +91,14 @@ public class UsuarioView{
 		
 		System.out.println("===== Editar =====");
 		System.out.println("Código do Usuário: ");
-		String codigoEditar = entradaEdicao.nextLine();
+		String codigo = entradaEdicao.nextLine();
 		
 		System.out.println("1 - Nome do Usuário");
 		System.out.println("2 - Cargo do Usuário");
 		System.out.println("Opção para editar: ");
-		String opcaoEditar = entradaEdicao.nextLine();
+		String opcao = entradaEdicao.nextLine();
 		
-		switch (opcaoEditar) {
+		switch (opcao) {
 		case "1":
 			System.out.println("Novo nome do Usuário: ");
 			
@@ -118,8 +120,8 @@ public class UsuarioView{
 		
 		ArrayList<String> dadosEdicao = new ArrayList<String>();
 		
-		dadosEdicao.add(codigoEditar);
-		dadosEdicao.add(opcaoEditar);
+		dadosEdicao.add(codigo);
+		dadosEdicao.add(opcao);
 		dadosEdicao.add(novoValor);
 		
 		return dadosEdicao; 

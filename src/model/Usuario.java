@@ -1,5 +1,7 @@
 package model;
 
+import java.util.ArrayList;
+
 /**
  * Classe para instanciar objetos do tipo Usuario, e realizar as funções de
  * gerenciamento desse objeto
@@ -15,6 +17,8 @@ public class Usuario {
 	private String nome;
 	private String senha;
 	private boolean gerente;
+	
+	private static ArrayList<Usuario> listaUsuario = new ArrayList<Usuario>();
 	
 	/**
 	 * Construtor do objeto da Classe Usuario
@@ -92,5 +96,132 @@ public class Usuario {
 	public void setGerente(boolean gerente) {
 		this.gerente = gerente;
 	}
+	
+	/**
+	 * Getter da listaUsuario
+	 * @return
+	 */
+	public static ArrayList<Usuario> getListaUsuario() {
+		return listaUsuario;
+	}
+	
+	/**
+	 * Setter listaUsuario
+	 * @param listaUsuario
+	 */
+	public static void setListaUsuario(ArrayList<Usuario> listaUsuario) {
+		Usuario.listaUsuario = listaUsuario;
+	}
+	
 
+	/**
+	 * Recebe objeto com os valores e insere na listaUsuario
+	 * @param novoUsuario
+	 */
+	public static void cadastrar(Usuario novoUsuario) {
+	
+		getListaUsuario().add(novoUsuario); 
+	}
+	
+	/**
+	 * Recebe o codigo do Usuário e o novo nome, e edita no objeto da lista
+	 * @param codigoString
+	 * @param novoNome
+	 */
+	public static void editarNome(String codigoString, String novoNome) {
+		
+		int i = buscaUsuario(codigoString); 
+		
+		if (i != -1) {
+			getListaUsuario().get(i).setNome(novoNome);
+		}
+	}
+	
+	/**
+	 * Recebe o codigo do Usuário e o novo cargo, e edita no objeto da lista
+	 * @param codigoString
+	 * @param novoCargo
+	 */
+	public static void editarCargo(String codigoString, String novoCargo) {
+		
+		int i = buscaUsuario(codigoString); 
+		
+		if (i != -1) {
+			switch (novoCargo) {
+			case "1": 
+				getListaUsuario().get(i).setGerente(true);
+				break;
+			case "2":
+				getListaUsuario().get(i).setGerente(false);
+				break;
+			default:
+				System.out.println();
+				break;
+			}
+		}
+	}
+	
+	/**
+	 * Recebe o codigo do Usuário, e exclui da lista
+	 * @param codigoString
+	 */
+	public static void excluir(String codigoString) {
+		
+		int i = buscaUsuario(codigoString);
+		
+		if (i != -1) {
+			getListaUsuario().remove(i);
+		}
+	}
+	
+	/**
+	 * Printa a lista de Usuários
+	 */
+	public static void listar() {
+		for (Usuario usuario : getListaUsuario()) {
+            System.out.println(
+            		usuario.getCodigo() + "      / " + 
+            		usuario.getNome() + " / " +
+            		usuario.getGerente());
+        }
+	}
+	
+	/**
+	 * Recebe um código de usuário e encontra o index do objeto com esse código,
+	 * na lista
+	 * @param codigo
+	 * @return indice
+	 */
+	public static int buscaUsuario(String codigo) {
+		int indice = 0; 
+		for(Usuario u : getListaUsuario()){
+		    if (u.getCodigo().equals(codigo)) {
+		    	return indice; 
+		    }                  
+		    indice++;
+		}
+		return -1; 
+	}
+	
+	/**
+	 * Função para validar o login de um usuário no main
+	 * @param codigo
+	 * @param senha
+	 * @return
+	 */
+	public static boolean validaUsuario(String codigo, String senha) {
+		for(Usuario u : getListaUsuario()){
+		    if (u.getCodigo().equals(codigo) && u.getSenha().equals(senha)) {
+		    	return true; 
+		    }             
+		}
+		return false; 
+	}
+	
+	/**
+	 * Limpa lista de Usuário (Exclusiva para teste)
+	 */
+	public static void limpaListaUsuario() {
+		listaUsuario.clear();
+	}
 }
