@@ -7,7 +7,7 @@ import view.UsuarioView;
 
 public class UsuarioController{
 	
-	static int contadorCodigo = 1;
+	static int contadorCodigo = 0;
 	
 	public static void geraCodigo() {
 		contadorCodigo ++;

@@ -5,7 +5,7 @@ public class JavadocController {
 	/**
 	 * Contador inicial do Código único dos elementos
 	 */
-	static int contadorCodigo = 1;
+	static int contadorCodigo;
 	
 	/**
 	 * Função chamada no cadastro, para pegar o próximo código dispónivel
