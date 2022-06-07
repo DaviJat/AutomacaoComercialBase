@@ -3,6 +3,8 @@ package view;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import controller.FornecedorController;
+
 
 public class FornecedorView {
 	
@@ -23,16 +25,16 @@ public class FornecedorView {
 		
 		switch (opcaoMenu) {
 		case "1":
-			menuCadastro();
+			FornecedorController.cadastro();
 			break;
 		case "2":
-			menuEdicao();
+			FornecedorController.edicao();
 			break;
 		case "3":
-			menuExcluir();
+			FornecedorController.excluir();
 			break;
 		case "4":
-			listar();
+			FornecedorController.listar();
 			break;
 		default:
 			System.out.println("Opção inválida");

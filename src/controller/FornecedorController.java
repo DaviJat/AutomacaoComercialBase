@@ -30,7 +30,6 @@ static int contadorCodigo = 0;
 		String cnpj = dadosCadastro.get(1);
 		String endereco = dadosCadastro.get(2);
 		
-		
 		Fornecedor novoFornecedor = new Fornecedor(codigo, nome, cnpj, endereco);
 		Fornecedor.cadastrar(novoFornecedor);
 		
