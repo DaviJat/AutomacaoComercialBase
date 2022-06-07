@@ -154,9 +154,6 @@ public class Usuario {
 			case "2":
 				getListaUsuario().get(i).setGerente(false);
 				break;
-			default:
-				System.out.println();
-				break;
 			}
 		}
 	}

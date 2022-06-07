@@ -2,6 +2,7 @@ package view;
 
 import java.util.Scanner;
 
+import controller.FornecedorController;
 import controller.LoginController;
 import controller.UsuarioController;
 
@@ -34,7 +35,7 @@ public class GerenciamentoView {
 				UsuarioController.menuPrincipal();
 				break;
 			case "2":
-				//FornecedorController.menu();
+				FornecedorController.menuPrincipal();
 				break;
 			case "3":
 				//ProdutoController.menu();
