@@ -28,7 +28,7 @@ public class LoginController {
 		
 		if (validaLogin == false) {
 			AlertView.loginInvalido();
-			LoginView.telaLogin();
+			LoginController.login();
 		}
 		
 		if (validaLogin == true) {
