@@ -86,7 +86,7 @@ public class FornecedorView {
 		
 		switch (opcao) {
 		case "1":
-			System.out.println("Novo nome do Fornecedor: ");
+			System.out.println("Novo Nome do Fornecedor: ");
 			
 			novoValor = entradaEdicao.nextLine();
 			break;

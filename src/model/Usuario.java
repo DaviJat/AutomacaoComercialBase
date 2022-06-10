@@ -6,7 +6,6 @@ import java.util.ArrayList;
  * Classe para instanciar objetos do tipo Usuario, e realizar as funções de
  * gerenciamento desse objeto
  * @author Davi
- *
  */
 public class Usuario {
 	

@@ -3,6 +3,12 @@ package model;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+/**
+ * Classe para instanciar objetos do tipo Fornecedor, e realizar as funções de
+ * gerenciamento desse objeto
+ * @author Davi
+ */
 public class Fornecedor {
 	
 	/** 

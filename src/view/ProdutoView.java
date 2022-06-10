@@ -3,16 +3,18 @@ package view;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import controller.UsuarioController;
+import base.Geral;
 
-public class UsuarioView{
+public class ProdutoView {
+	
+static int contadorCodigo = 0;
 	
 	public static void menuPrincipal() {
 		
 		@SuppressWarnings("resource")
 		Scanner entradaMenu = new Scanner(System.in);
 	
-		System.out.println("Gerenciamento de Usuários");
+		System.out.println("Gerenciamento de Produtos");
 		System.out.println("1 - Cadastro");
 		System.out.println("2 - Editar");
 		System.out.println("3 - Excluir");
@@ -24,16 +26,16 @@ public class UsuarioView{
 		
 		switch (opcaoMenu) {
 		case "1":
-			UsuarioController.cadastro();
+			//cadastro();
 			break;
 		case "2":
-			UsuarioController.edicao();
+			//edicao();
 			break;
 		case "3":
-			UsuarioController.excluir();
+			//excluir();
 			break;
 		case "4":
-			UsuarioController.listar();
+			//listar();
 			break;
 		default:
 			System.out.println("Opção inválida");
@@ -43,75 +45,81 @@ public class UsuarioView{
 	
 	public static ArrayList<String> menuCadastro() {
 		
-		String gerente = "false";
-		
 		@SuppressWarnings("resource")
 		Scanner entradaCadastro = new Scanner(System.in);
 		
 		System.out.println("======= Cadastrar ======");
-		System.out.println("Nome do Usuário: ");
+		System.out.println("Nome do Produto: ");
 		String nome = entradaCadastro.nextLine();
 		
-		System.out.println("Senha: ");
-		String senha = entradaCadastro.nextLine();
+		String mensagem = "Preço do Produto: ";
+		String preco = Double.toString(Geral.validaDouble(mensagem));
 		
-		System.out.println("1 - Gerente");
-		System.out.println("2 - Funcionário");
-		System.out.println("Cargo do Usuário: ");
-		String opcao = entradaCadastro.nextLine();
+		mensagem = "Quantidade para armazenar no estoque (em gramas): ";
+		String estoque = Double.toString(Geral.validaDouble(mensagem));
 		
-		switch (opcao) {
-		case "1":
-			gerente = "true";
-			break;
-		case "2":
-			gerente = "false";
-			break;
-		default:
-			System.out.println("Opção inválida");
-			break;
-		}
+		System.out.println("Data de Validade do Produto");
+		String validade = Geral.validaData();
 		
 		ArrayList<String> dadosCadastro = new ArrayList<String>();
 		
 		dadosCadastro.add(nome);
-		dadosCadastro.add(senha);
-		dadosCadastro.add(gerente);
-		
+		dadosCadastro.add(preco);
+		dadosCadastro.add(estoque);
+		dadosCadastro.add(validade);
 		
 		return dadosCadastro; 
 	}
 	
+	/**
+	 * Recebe os valores para ser feita a edição e manda como parâmetro 
+	 * para a função de edição, da classe Produto
+	 * @return 
+	 */
 	public static ArrayList<String> menuEdicao() {
 		
 		String novoValor = "";
-		
+
 		@SuppressWarnings("resource")
 		Scanner entradaEdicao = new Scanner(System.in);
 		
 		System.out.println("===== Editar =====");
-		System.out.println("Código do Usuário: ");
+		System.out.println("Código do Produto: ");
 		String codigo = entradaEdicao.nextLine();
 		
-		System.out.println("1 - Nome do Usuário");
-		System.out.println("2 - Cargo do Usuário");
+		System.out.println("1 - Nome do Produto");
+		System.out.println("2 - Preço do Produto");
+		System.out.println("3 - Validade do Produto");
+		System.out.println("4 - Estoque do Produto");
+		System.out.println("5 - Fornecedor do Produto");
 		System.out.println("Opção para editar: ");
 		String opcao = entradaEdicao.nextLine();
 		
 		switch (opcao) {
 		case "1":
-			System.out.println("Novo Nome do Usuário: ");
+			System.out.println("Novo Nome do Produto: ");
 			
 			novoValor = entradaEdicao.nextLine();
-			
 			break;
 		case "2":
-			System.out.println("1 - Gerente");
-			System.out.println("2 - Funcionario");
-			System.out.println("Novo Cargo do Usuário: ");
+			System.out.println("Novo Preço do Produto: ");
 			
 			novoValor = entradaEdicao.nextLine();
+			break;
+		case "3":
+			System.out.println("Nova Validade do Produto");
+
+			novoValor = entradaEdicao.nextLine();
+			break;
+		case "4":
+			System.out.println("Novo Valor do Estoque");
+
+			novoValor = entradaEdicao.nextLine();
+			break;
+		case "5":
+			System.out.println("Código do novo Fornecedor");
 			
+			novoValor = entradaEdicao.nextLine();
 			break;
 		default:
 			System.out.println("Opção inválida");
@@ -125,24 +133,31 @@ public class UsuarioView{
 		dadosEdicao.add(novoValor);
 		
 		return dadosEdicao; 
-		
 	}
 	
-	public static String menuExcluir() {
+	/**
+	 * Recebe o código do objeto a ser excluido e envia como parâmetro 
+	 * para a função de exclusão, da classe Produto
+	 * @return 
+	 */
+	public static String excluir() {
 		
 		@SuppressWarnings("resource")
 		Scanner entradaExclusao = new Scanner(System.in);
 		
 		System.out.println("===== Excluir ====");
-		System.out.println("Código do Usuário:");
+		System.out.println("Código do Produto:");
 		
 		String codigo = entradaExclusao.nextLine();
 		
 		return codigo;
 	}
 	
+	/**
+	 * Executa a função de listagem, da classe Produto
+	 */
 	public static void listar() {
-		System.out.println("======== Lista ========");
-		System.out.println("Código / Nome / Gerente");
+		System.out.println("======================== Lista Produtos ========================");
 	}
+
 }
