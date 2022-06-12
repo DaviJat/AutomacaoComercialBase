@@ -211,7 +211,9 @@ public class Item {
 	 * @param codigoString
 	 * @param novoPreco
 	 */
-	public static void editarPreco(String codigoString, double novoPreco) {
+	public static void editarPreco(String codigoString, String novoPrecoString) {
+		
+		double novoPreco = Double.parseDouble(novoPrecoString);
 		
 		int i = buscaItem(codigoString);
 		

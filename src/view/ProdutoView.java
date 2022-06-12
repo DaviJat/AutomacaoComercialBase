@@ -77,11 +77,6 @@ static int contadorCodigo = 0;
 		return dadosCadastro; 
 	}
 	
-	/**
-	 * Recebe os valores para ser feita a edição e manda como parâmetro 
-	 * para a função de edição, da classe Produto
-	 * @return 
-	 */
 	public static ArrayList<String> menuEdicao() {
 		
 		String novoValor = "";
@@ -141,11 +136,6 @@ static int contadorCodigo = 0;
 		return dadosEdicao; 
 	}
 	
-	/**
-	 * Recebe o código do objeto a ser excluido e envia como parâmetro 
-	 * para a função de exclusão, da classe Produto
-	 * @return 
-	 */
 	public static String menuExcluir() {
 		
 		@SuppressWarnings("resource")
@@ -159,9 +149,6 @@ static int contadorCodigo = 0;
 		return codigo;
 	}
 	
-	/**
-	 * Executa a função de listagem, da classe Produto
-	 */
 	public static void listar() {
 		System.out.println("======================== Lista Produtos ========================");
 	}
