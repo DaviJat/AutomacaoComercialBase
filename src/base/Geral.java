@@ -141,7 +141,7 @@ public class Geral {
 	 * Loop com o input do preço total, finalizado apenas quando o valor for válido
 	 * @return
 	 */
-	public static double validaDouble(String mensagem) {
+	public static double validaDouble() {
 		double preco = 0;
 		
 		@SuppressWarnings("resource")
@@ -152,7 +152,6 @@ public class Geral {
 		while (validaPreco == false) {
 			
 			try{
-				System.out.println(mensagem);
 				String precoString = entradaPreco.nextLine();
 				preco = Double.parseDouble(precoString);
 				validaPreco = true;

@@ -54,14 +54,14 @@ static int contadorCodigo = 0;
 		System.out.println("Nome do Produto: ");
 		String nome = entradaCadastro.nextLine();
 		
-		String mensagem = "Preço do Produto: ";
-		String preco = Double.toString(Geral.validaDouble(mensagem));
+		System.out.println("Preço do Produto: ");
+		String preco = Double.toString(Geral.validaDouble());
 		
 		System.out.println("Data de Validade do Produto");
 		String validade = Geral.validaData();
 		
-		mensagem = "Quantidade para armazenar no estoque (em gramas): ";
-		String estoque = Double.toString(Geral.validaDouble(mensagem));
+		System.out.println("Quantidade para armazenar no estoque (em gramas): ");
+		String estoque = Double.toString(Geral.validaDouble());
 		
 		
 		String codigoFornecedor = Fornecedor.validaFornecedor();
@@ -105,17 +105,17 @@ static int contadorCodigo = 0;
 		case "2":
 			System.out.println("Novo Preço do Produto: ");
 			
-			novoValor = entradaEdicao.nextLine();
+			novoValor = Double.toString(Geral.validaDouble());
 			break;
 		case "3":
 			System.out.println("Nova Validade do Produto");
 
-			novoValor = entradaEdicao.nextLine();
+			novoValor = Geral.validaData();
 			break;
 		case "4":
 			System.out.println("Novo Valor do Estoque");
 
-			novoValor = entradaEdicao.nextLine();
+			novoValor = Double.toString(Geral.validaDouble());
 			break;
 		case "5":
 			System.out.println("Código do novo Fornecedor");

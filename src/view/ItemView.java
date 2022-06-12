@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import base.Geral;
+import controller.ItemController;
 import model.Produto;
 
 public class ItemView {
@@ -25,16 +26,16 @@ public class ItemView {
 		
 		switch (opcaoMenu) {
 		case "1":
-			//ItemController.cadastro();
+			ItemController.cadastro();
 			break;
 		case "2":
-			//ItemController.edicao();
+			ItemController.edicao();
 			break;
 		case "3":
-			//ItemController.excluir();
+			ItemController.excluir();
 			break;
 		case "4":
-			//ItemController.listar();
+			ItemController.listar();
 			break;
 		default:
 			System.out.println("Opção inválida");
@@ -51,8 +52,8 @@ public class ItemView {
 		System.out.println("Nome do Item: ");
 		String nome = entradaCadastro.nextLine();
 		
-		String mensagem = "Preço do Item: ";
-		String preco = Double.toString(Geral.validaDouble(mensagem));
+		System.out.println("Preço do Item: ");
+		String preco = Double.toString(Geral.validaDouble());
 		
 		System.out.println("Descrição: ");
 		String descricao = entradaCadastro.nextLine();
@@ -98,7 +99,7 @@ public class ItemView {
 		case "2":
 			System.out.println("Novo Preço do Item: ");
 			
-			novoValor = entradaEdicao.nextLine();
+			novoValor = Double.toString(Geral.validaDouble());
 			break;
 		case "3":
 			System.out.println("Novo Descrição do Item: ");
