@@ -75,7 +75,7 @@ public class ProdutoController {
 	}
 	
 	public static void listar() {
-		System.out.println("======================== Lista Produtos ========================");
+		ProdutoView.listar();
 		Produto.listar();
 	}
 

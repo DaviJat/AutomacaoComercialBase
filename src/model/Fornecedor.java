@@ -212,7 +212,7 @@ public class Fornecedor {
 	 * @return 
 	 */
 	public static String validaFornecedor() {
-		String codigoFornecedorString = null;
+		String codigoFornecedor = null;
 		
 		@SuppressWarnings("resource")
 		Scanner entradaFornecedor = new Scanner(System.in);
@@ -221,16 +221,16 @@ public class Fornecedor {
 		
 		while (validaFornecedor == false) {
 			System.out.println("Código do fornecedor do produto: ");
-			String codigoFornecedor = entradaFornecedor.nextLine();
+			codigoFornecedor = entradaFornecedor.nextLine();
 			int resultadoBusca = Fornecedor.buscaFornecedor(codigoFornecedor);
 			if (resultadoBusca == -1) {
 				System.out.println("Fornecedor Não Cadastrado: ");
 			} else {
-				codigoFornecedorString = Integer.toString(resultadoBusca);
 				validaFornecedor = true;
 			}
 		}
-		return codigoFornecedorString;
+		
+		return codigoFornecedor;
 		
 	}
 	
@@ -246,9 +246,10 @@ public class Fornecedor {
 	 * @param codigo
 	 * @return
 	 */
-	public static String retornaNomeFornecedor(String codigo) {
+	public static String retornaNomeFornecedor(String codigoFornecedor) {
 		
-		int indice = Integer.parseInt(codigo) - 1;
+		int indice = Fornecedor.buscaFornecedor(codigoFornecedor);
+		
 		String nome = listaFornecedor.get(indice).nome;
 		
 		return nome;
