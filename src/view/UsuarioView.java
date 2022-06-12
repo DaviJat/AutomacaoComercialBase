@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import controller.UsuarioController;
+import model.Usuario;
 
 public class UsuarioView{
 	
@@ -90,8 +91,7 @@ public class UsuarioView{
 		Scanner entradaEdicao = new Scanner(System.in);
 		
 		System.out.println("===== Editar =====");
-		System.out.println("Código do Usuário: ");
-		String codigo = entradaEdicao.nextLine();
+		String codigo = Usuario.validaUsuario();
 		
 		System.out.println("1 - Nome do Usuário");
 		System.out.println("2 - Cargo do Usuário");

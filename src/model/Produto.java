@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Classe para instanciar objetos do tipo Produto, e realizar as funções de
@@ -286,6 +287,33 @@ public class Produto {
 		    indice++;
 		}
 		return -1; 
+	}
+	
+	/**
+	 * Loop que verifica se foi encontrado um fornecedor com o código digitado
+	 * @return 
+	 */
+	public static String validaProduto() {
+		String codigoProduto = null;
+		
+		@SuppressWarnings("resource")
+		Scanner entradaProduto = new Scanner(System.in);
+		
+		boolean validaProduto = false;
+		
+		while (validaProduto == false) {
+			System.out.println("Código do produto: ");
+			codigoProduto = entradaProduto.nextLine();
+			int resultadoBusca = Fornecedor.buscaFornecedor(codigoProduto);
+			if (resultadoBusca == -1) {
+				System.out.println("Produto Não Cadastrado: ");
+			} else {
+				validaProduto = true;
+			}
+		}
+		
+		return codigoProduto;
+		
 	}
 	
 	/*

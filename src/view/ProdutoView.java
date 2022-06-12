@@ -6,6 +6,7 @@ import java.util.Scanner;
 import base.Geral;
 import controller.ProdutoController;
 import model.Fornecedor;
+import model.Produto;
 
 public class ProdutoView {
 	
@@ -85,8 +86,7 @@ static int contadorCodigo = 0;
 		Scanner entradaEdicao = new Scanner(System.in);
 		
 		System.out.println("===== Editar =====");
-		System.out.println("Código do Produto: ");
-		String codigo = entradaEdicao.nextLine();
+		String codigo = Produto.validaProduto();
 		
 		System.out.println("1 - Nome do Produto");
 		System.out.println("2 - Preço do Produto");
@@ -120,7 +120,7 @@ static int contadorCodigo = 0;
 		case "5":
 			System.out.println("Código do novo Fornecedor");
 			
-			novoValor = entradaEdicao.nextLine();
+			novoValor = Fornecedor.validaFornecedor();
 			break;
 		default:
 			System.out.println("Opção inválida");
@@ -137,14 +137,9 @@ static int contadorCodigo = 0;
 	}
 	
 	public static String menuExcluir() {
-		
-		@SuppressWarnings("resource")
-		Scanner entradaExclusao = new Scanner(System.in);
-		
 		System.out.println("===== Excluir ====");
-		System.out.println("Código do Produto:");
 		
-		String codigo = entradaExclusao.nextLine();
+		String codigo = Produto.validaProduto();
 		
 		return codigo;
 	}

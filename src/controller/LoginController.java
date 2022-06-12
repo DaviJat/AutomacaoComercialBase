@@ -22,7 +22,7 @@ public class LoginController {
 		
 		usuarioLogado = codigo;
 		
-		boolean validaLogin = Usuario.validaUsuario(codigo, senha);
+		boolean validaLogin = Usuario.validaUsuarioLogin(codigo, senha);
 		
 		if (validaLogin == false) {
 			AlertView.loginInvalido();

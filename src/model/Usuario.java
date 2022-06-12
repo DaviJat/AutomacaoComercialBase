@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * Classe para instanciar objetos do tipo Usuario, e realizar as funções de
@@ -200,12 +201,39 @@ public class Usuario {
 	}
 	
 	/**
+	 * Loop que verifica se foi encontrado um usuário com o código digitado
+	 * @return 
+	 */
+	public static String validaUsuario() {
+		String codigoUsuario = null;
+		
+		@SuppressWarnings("resource")
+		Scanner entradaUsuario = new Scanner(System.in);
+		
+		boolean validaUsuario = false;
+		
+		while (validaUsuario == false) {
+			System.out.println("Código do Usuário: ");
+			codigoUsuario = entradaUsuario.nextLine();
+			int resultadoBusca = Usuario.buscaUsuario(codigoUsuario);
+			if (resultadoBusca == -1) {
+				System.out.println("Usuario Não Cadastrado: ");
+			} else {
+				validaUsuario = true;
+			}
+		}
+		
+		return codigoUsuario;
+		
+	}
+	
+	/**
 	 * Função para validar o login de um usuário no main
 	 * @param codigo
 	 * @param senha
 	 * @return
 	 */
-	public static boolean validaUsuario(String codigo, String senha) {
+	public static boolean validaUsuarioLogin(String codigo, String senha) {
 		for(Usuario u : getListaUsuario()){
 		    if (u.getCodigo().equals(codigo) && u.getSenha().equals(senha)) {
 		    	return true; 
