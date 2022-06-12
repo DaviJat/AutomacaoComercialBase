@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import controller.FornecedorController;
+import model.Fornecedor;
 
 
 public class FornecedorView {
@@ -75,8 +76,7 @@ public class FornecedorView {
 		Scanner entradaEdicao = new Scanner(System.in);
 		
 		System.out.println("===== Editar =====");
-		System.out.println("Código do Fornecedor: ");
-		String codigo = entradaEdicao.nextLine();
+		String codigo = Fornecedor.validaFornecedor();
 		
 		System.out.println("1 - Nome do Fornecedor");
 		System.out.println("2 - CNPJ do Fornecedor");
@@ -118,13 +118,9 @@ public class FornecedorView {
 	
 	public static String menuExcluir() {
 		
-		@SuppressWarnings("resource")
-		Scanner entradaExclusao = new Scanner(System.in);
-		
 		System.out.println("===== Excluir ====");
-		System.out.println("Código do Fornecedor:");
 		
-		String codigo = entradaExclusao.nextLine();
+		String codigo = Fornecedor.validaFornecedor();
 		
 		return codigo;
 	}
