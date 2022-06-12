@@ -250,6 +250,7 @@ public class Fornecedor {
 		
 		int indice = Integer.parseInt(codigo) - 1;
 		String nome = listaFornecedor.get(indice).nome;
+		
 		return nome;
 	}
 

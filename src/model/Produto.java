@@ -186,7 +186,9 @@ public class Produto {
 	 * @param codigoString
 	 * @param novoPreco
 	 */
-	public static void editarPreco(String codigoString, double novoPreco) {
+	public static void editarPreco(String codigoString, String novoPrecoString) {
+		
+		double novoPreco = Double.parseDouble(novoPrecoString);
 		
 		int i = buscaProduto(codigoString); 
 		
@@ -214,7 +216,9 @@ public class Produto {
 	 * @param codigoString
 	 * @param novoEstoque
 	 */
-	public static void editarEstoque(String codigoString, double novoEstoque) {
+	public static void editarEstoque(String codigoString, String novoEstoqueString) {
+		
+		double novoEstoque = Double.parseDouble(novoEstoqueString);
 		
 		int i = buscaProduto(codigoString); 
 		

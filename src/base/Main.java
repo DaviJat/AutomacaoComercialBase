@@ -12,6 +12,7 @@ do código, e estou ciente que estes trechos não serão considerados para fins de 
 package base;
 
 import controller.LoginController;
+import model.Fornecedor;
 import model.Usuario;
 
 public class Main {
@@ -20,6 +21,9 @@ public class Main {
 		
 		Usuario novoUsuario = new Usuario("1", "Administrador", "adm", true);
 		Usuario.cadastrar(novoUsuario);
+		
+		Fornecedor novoFornecedor = new Fornecedor("1", "Piracanjuba", "88888888", "Rua Argentina");
+		Fornecedor.cadastrar(novoFornecedor);
 		
 		LoginController.login();
 		

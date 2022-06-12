@@ -24,8 +24,6 @@ public class LoginController {
 		
 		boolean validaLogin = Usuario.validaUsuario(codigo, senha);
 		
-		System.out.println(validaLogin);
-		
 		if (validaLogin == false) {
 			AlertView.loginInvalido();
 			LoginController.login();

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import base.Geral;
+import controller.ProdutoController;
+import model.Fornecedor;
 
 public class ProdutoView {
 	
@@ -26,16 +28,16 @@ static int contadorCodigo = 0;
 		
 		switch (opcaoMenu) {
 		case "1":
-			//cadastro();
+			ProdutoController.cadastro();
 			break;
 		case "2":
-			//edicao();
+			ProdutoController.edicao();
 			break;
 		case "3":
-			//excluir();
+			ProdutoController.excluir();
 			break;
 		case "4":
-			//listar();
+			ProdutoController.listar();
 			break;
 		default:
 			System.out.println("Opção inválida");
@@ -55,18 +57,22 @@ static int contadorCodigo = 0;
 		String mensagem = "Preço do Produto: ";
 		String preco = Double.toString(Geral.validaDouble(mensagem));
 		
+		System.out.println("Data de Validade do Produto");
+		String validade = Geral.validaData();
+		
 		mensagem = "Quantidade para armazenar no estoque (em gramas): ";
 		String estoque = Double.toString(Geral.validaDouble(mensagem));
 		
-		System.out.println("Data de Validade do Produto");
-		String validade = Geral.validaData();
+		
+		String codigoFornecedor = Fornecedor.validaFornecedor();
 		
 		ArrayList<String> dadosCadastro = new ArrayList<String>();
 		
 		dadosCadastro.add(nome);
 		dadosCadastro.add(preco);
-		dadosCadastro.add(estoque);
 		dadosCadastro.add(validade);
+		dadosCadastro.add(estoque);
+		dadosCadastro.add(codigoFornecedor);
 		
 		return dadosCadastro; 
 	}
@@ -140,7 +146,7 @@ static int contadorCodigo = 0;
 	 * para a função de exclusão, da classe Produto
 	 * @return 
 	 */
-	public static String excluir() {
+	public static String menuExcluir() {
 		
 		@SuppressWarnings("resource")
 		Scanner entradaExclusao = new Scanner(System.in);
