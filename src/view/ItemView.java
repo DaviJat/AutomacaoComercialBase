@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import base.Geral;
 import controller.ItemController;
+import model.Item;
 import model.Produto;
 
 public class ItemView {
@@ -80,8 +81,7 @@ public class ItemView {
 		Scanner entradaEdicao = new Scanner(System.in);
 		
 		System.out.println("===== Editar =====");
-		System.out.println("Código do Item: ");
-		String codigo = entradaEdicao.nextLine();
+		String codigo = Item.validaItem();
 		
 		System.out.println("1 - Nome do Item");
 		System.out.println("2 - Preço do Item");
@@ -127,13 +127,9 @@ public class ItemView {
 	
 	public static String menuExcluir() {
 		
-		@SuppressWarnings("resource")
-		Scanner entradaExclusao = new Scanner(System.in);
-		
 		System.out.println("===== Excluir ====");
-		System.out.println("Código do Item:");
 		
-		String codigo = entradaExclusao.nextLine();
+		String codigo = Item.validaItem();
 		
 		return codigo;
 	}

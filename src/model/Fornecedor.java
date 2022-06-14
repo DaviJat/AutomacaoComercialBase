@@ -220,7 +220,7 @@ public class Fornecedor {
 		boolean validaFornecedor = false;
 		
 		while (validaFornecedor == false) {
-			System.out.println("Código do fornecedor: ");
+			System.out.println("Código do Fornecedor: ");
 			codigoFornecedor = entradaFornecedor.nextLine();
 			int resultadoBusca = Fornecedor.buscaFornecedor(codigoFornecedor);
 			if (resultadoBusca == -1) {
