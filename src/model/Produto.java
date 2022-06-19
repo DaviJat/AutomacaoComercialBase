@@ -316,14 +316,12 @@ public class Produto {
 		
 	}
 	
-	/*
 	@SuppressWarnings("static-access")
 	/**
 	 * Função para remover do estoque a quantidade de cada produto de cada item da venda
 	 * @param produtoVenda
 	 * @param quantidade
 	 */
-	/*
 	public static void removerEstoque(Produto produtoVenda, double quantidade) {
 		
 		int indice = 0;
@@ -345,7 +343,6 @@ public class Produto {
         }
 		
 	}
-	*/
 	
 	/**
 	 * Limpa lista de Produto (Exclusiva para teste)
