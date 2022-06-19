@@ -133,7 +133,7 @@ public class VendaView {
 	}
 		
 	public static void listar() {
-		System.out.println("======================== Venda ========================");
+		System.out.println("======================== Lista Vendas ========================");
 	}
 	
 	public static ArrayList<String> geraListaItens() {
