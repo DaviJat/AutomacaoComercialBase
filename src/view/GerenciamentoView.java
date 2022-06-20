@@ -2,11 +2,13 @@ package view;
 
 import java.util.Scanner;
 
+import controller.ClienteController;
 import controller.FornecedorController;
 import controller.ItemController;
 import controller.LoginController;
 import controller.ProdutoController;
 import controller.UsuarioController;
+import controller.VendaController;
 
 public class GerenciamentoView {
 	
@@ -23,8 +25,9 @@ public class GerenciamentoView {
 			System.out.println("1 - Usuários");
 			System.out.println("2 - Fornecedores");
 			System.out.println("3 - Produtos");
-			System.out.println("4 - Cardápio");
+			System.out.println("4 - Itens");
 			System.out.println("5 - Vendas");
+			System.out.println("5 - Clientes");
 			System.out.println("6 - Relatórios");
 			System.out.println("7 - Sair");
 			
@@ -46,12 +49,15 @@ public class GerenciamentoView {
 				ItemController.menuPrincipal();
 				break;
 			case "5":
-				//VendaController.menu();
+				VendaController.menuPrincipal();
 				break;
 			case "6":
-				//RelatorioController.menu();
+				ClienteController.menuPrincipal();
 				break;
 			case "7":
+				//RelatorioController.menu();
+				break;
+			case "8":
 				LoginController.login();
 				break;
 			default:

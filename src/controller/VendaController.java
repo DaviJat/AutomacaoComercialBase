@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import model.Item;
 import model.Venda;
-import view.ItemView;
 import view.VendaView;
 
 public class VendaController {
@@ -16,7 +15,7 @@ public class VendaController {
 	}
 	
 	public static void menuPrincipal() {
-		ItemView.menuPrincipal();
+		VendaView.menuPrincipal();
 	}
 	
 	public static void cadastro() {
