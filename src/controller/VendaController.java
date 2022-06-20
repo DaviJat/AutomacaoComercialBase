@@ -39,12 +39,13 @@ public class VendaController {
 			String data = dadosCadastro.get(0);
 			String hora = dadosCadastro.get(1);
 			String formaPagamento = dadosCadastro.get(2);
+			String codigoCliente = dadosCadastro.get(3);
 			
 			itensCadastro = VendaView.geraListaItens();
 			
 			double precoTotal = calculaPrecoTotal(itensCadastro);
 			
-			Venda novaVenda = new Venda(codigo, data, hora, precoTotal, formaPagamento, itensCadastro);
+			Venda novaVenda = new Venda(codigo, data, hora, precoTotal, formaPagamento, codigoCliente, itensCadastro);
 			Venda.registrar(novaVenda);
 		
 		}

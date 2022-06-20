@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import base.Geral;
 import controller.VendaController;
+import model.Cliente;
 import model.Item;
 import model.Produto;
 import model.Venda;
@@ -61,11 +62,14 @@ public class VendaView {
 		System.out.println("Forma de pagamento da venda: ");
 		String formaPagamento = entradaCadastro.nextLine();
 		
+		String codigoCliente = Cliente.validaCliente();
+		
 		ArrayList<String> dadosCadastro = new ArrayList<String>();
 		
 		dadosCadastro.add(data);
 		dadosCadastro.add(hora);
 		dadosCadastro.add(formaPagamento);
+		dadosCadastro.add(codigoCliente);
 		
 		return dadosCadastro; 
 	}

@@ -19,6 +19,7 @@ public class Venda {
 	private String hora;
 	private double precoTotal;
 	private String formaPagamento;
+	private String codigoCliente;
 	private ArrayList<String> listaItensVenda;
 	
 	public static ArrayList<Venda> listaVenda = new ArrayList<Venda>();
@@ -36,13 +37,14 @@ public class Venda {
 	 * @param itens
 	 */
 	public Venda(String codigo, String data, String hora, double precoTotal,
-			     String formaPagamento, ArrayList<String> itens) {
+			     String formaPagamento, String codigoCliente, ArrayList<String> itens) {
 		
 		setCodigo(codigo);
 		setData(data);
 		setHora(hora);
 		setPrecoTotal(precoTotal);
 		setFormaPagamento(formaPagamento);
+		setFormaPagamento(codigoCliente);
 		setListaItensVenda(itens);
 	}
 	
@@ -111,7 +113,7 @@ public class Venda {
 	public void setPrecoTotal(double precoTotal) {
 		this.precoTotal = precoTotal;
 	}
-
+	
 	/**
 	 * Getter que retorna o formaPagamento
 	 * @return formaPagamento
@@ -126,6 +128,22 @@ public class Venda {
 	 */
 	public void setFormaPagamento(String formaPagamento) {
 		this.formaPagamento = formaPagamento;
+	}
+	
+	/**
+	 * Getter que retorna o codigoCliente
+	 * @return codigoCliente
+	 */
+	public String getCodigoCliente() {
+		return codigoCliente;
+	}
+	
+	/** 
+	 * Setter do codigoCliente
+	 * @param codigoCliente
+	 */
+	public void CodigoCliente(String codigoCliente) {
+		this.codigoCliente = codigoCliente;
 	}
 	
 	/**

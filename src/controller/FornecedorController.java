@@ -7,7 +7,7 @@ import view.FornecedorView;
 
 public class FornecedorController {
 	
-static int contadorCodigo = 1;
+	static int contadorCodigo = 1;
 	
 	public static void geraCodigo() {
 		contadorCodigo ++;
